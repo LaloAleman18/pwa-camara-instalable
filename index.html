@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f172a">
+  <title>Visor Local</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <div class="marca"><img src="./icons/icon-192.png" width="36" height="36" alt="">Visor Local</div>
+      <button id="btn-instalar" class="secundario" hidden>Instalar app</button>
+    </div>
+  </header>
+  <main class="contenedor">
+    <h1>Cámara</h1>
+    <p class="intro">Mira la imagen de tu cámara en tiempo real. El video se queda en tu dispositivo.</p>
+    <aside id="instrucciones-ios" class="aviso" hidden>
+      <strong>Instalar en iPhone o iPad</strong>
+      <p>En Safari, abre <b>Compartir</b> → <b>Agregar a inicio</b>. Si aparece <b>Abrir como app web</b>, actívalo y pulsa <b>Agregar</b>.</p>
+    </aside>
+    <section class="tarjeta" aria-label="Visor de cámara">
+      <div class="visor">
+        <video id="visor-camara" autoplay playsinline muted hidden></video>
+        <div id="visor-vacio" class="visor-vacio" aria-hidden="true">
+          <span class="marco"><img src="./icons/icon-192.png" width="68" height="68" alt=""></span>
+          <span>Vista previa</span>
+        </div>
+      </div>
+      <div class="panel">
+        <p class="estado" id="estado-camara" role="status">Cámara apagada</p>
+        <button id="btn-preparar-camara" aria-controls="aviso-permiso" aria-expanded="false">Solicitar acceso a cámara</button>
+        <div class="acciones" id="controles" hidden>
+          <button id="btn-alternar-camara">Cambiar cámara</button>
+          <button id="btn-apagar-camara" class="secundario">Apagar cámara</button>
+        </div>
+        <section id="aviso-permiso" class="aviso" aria-labelledby="titulo-permiso" hidden>
+          <h2 id="titulo-permiso" tabindex="-1">Antes de encender la cámara</h2>
+          <p>Primero se solicitará la cámara trasera. Solo verás una vista previa en pantalla. La app no graba, no activa el micrófono y no envía imágenes a servidores.</p>
+          <div class="acciones">
+            <button id="btn-confirmar-permiso">Aceptar y encender cámara</button>
+            <button id="btn-cancelar-permiso" class="secundario">Cancelar</button>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
